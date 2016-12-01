@@ -1,4 +1,3 @@
-//Lazaro
 #include <iostream>
 using namespace std;
 
@@ -44,33 +43,45 @@ class Stack {
   int maxelem;
 };
 
+void menu(){
+	cout << "What would you like to do?: \n";
+	cout << "1: Push \n";
+	cout << "2: Pop \n";
+	cout << "3: Display \n";
+	cout << "4: Exit \n";
+	
+}
+
 int main() {
   Stack * s = new Stack(100);
+	int z, y;
+	char ans;
+	while (1) {
+		
+	D: menu();
+	cin >> z;
+	switch (z)
+	{
+  case 1:
+  		cout << "What number do you want to push?: ";
+  		cin >> y;
+  		cout << "\n";
+  		s->push(y);
 
-  s -> display();
-  s -> push(1);
-  s -> display();
-  s -> push(2);
-  s -> display();
-  s -> push(3);
-  s -> display();
-  s -> push(4);
-  s -> display();
-  s -> pop();
-  s -> display();
-  s -> pop();
-  s -> display();
-  s -> push(10);
-  s -> display();
-  s -> pop();
-  s -> display();
-  s -> pop();
-  s -> display();
-  s -> pop();
-  s -> display();
-  s -> pop();
-  s -> display();
-  s -> pop();
-  s -> display();
-  return 1;
-}
+		break;
+	case 2:
+		s -> pop();
+		if (y == 0)
+      	cout << "(empty)\n";
+      	cout << "\n";
+		
+		break;
+	case 3:
+		s -> display();
+		cout << "\n";
+		break;
+	case 4:
+		return 0;
+	}
+			}
+		}
