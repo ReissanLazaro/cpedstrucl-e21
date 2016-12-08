@@ -4,8 +4,8 @@
 using namespace std;
 void display (struct Book[]);
 void insert (int, int, double, struct Book[]);
-void del (int, int[]);
-void swap (int, int, int []);
+void del (int, struct Book[]);
+void swap (int, int, struct Book[]);
 struct Book {
   	int copies;
   	double price;
@@ -48,14 +48,14 @@ int main()
 				{
 					cout << "Enter position: ";
 					cin >> position;
-					del(position,arr);
+					del(position,book);
 					display(book);
 				} break;
 			case 4:
 				{
 					cout << "Enter position 1 and position 2: ";
 					cin >> position >> p2;
-					swap(position,p2,arr);
+					swap(position,p2,book);
 					display(book);
 				} break;
 			case 5:
@@ -102,20 +102,21 @@ void insert(int position, int copies, double price, struct Book book[])
 	}
 }
 
-void del(int p, int a[])
+void del(int position, struct Book book[])
 {
 	int i;
-	for (i=p; i<20; i++)
+	for (i=position; i<5; i++)
 	{
-		a[i]=a[i+1];
+		book[i]=book[i+1];
 	}
-	a[20-1]=0;
+	book[position].copies=0;
+	book[position].price=0;
 }
 
-void swap (int p, int p2, int a[])
+void swap (int p, int p2, struct Book book[])
 {
-	int temp;
-	temp=a[p];
-	a[p]=a[p2];
-	a[p2]=temp;
+	Book temp[5];
+	temp[p]=book[p];
+	book[p]=book[p2];
+	book[p2]=temp[p];
 }
